@@ -26,7 +26,8 @@ npx shadcn@latest add dialog   # add a shadcn/ui component
 - File: `C:\Users\Joe\Desktop\images\porfoilio-ideas.pen` (read it through the pencil MCP; it must be open in pen.dev)
 - Homepage frame: `RneR8` "Page · Home v2 · Feature tabs" (1440 wide). Sections in order: Nav `ldxnR`, Hero `DywD6`, Project 01 · Dproz `BlBfv`, Project 02 · Dproz Fitcheck `r8BIvg`, Project 03 · ShopXray `P8EYO`, More work `hOBYs`, About teaser `Zs391`, Contact banner `i4QwKx`
 - Don't build from `xEZwv` "Page · Home" (the earlier v1 layout with full-bleed colour chapters) or `UpWYc` (the archived Safari Spirits project section, replaced by ShopXray)
-- "Spec · Feature tabs" `r1RONp` describes how the project tabs move and lists every tab's caption
+- The code departs from the design's three project sections: one "My best work" section (`src/components/Work.tsx`) has a tab per project, each showing one tab screen from that project. The design's other tab screens are for the case study pages
+- "Spec · Feature tabs" `r1RONp` describes how the tabs move and lists every tab's caption
 - Each tab's screen is a 1248×640 component named `<Project>/Tab screen · <n> <tab>`, e.g. `rIDiR` "Dproz/Tab screen · 1 Guided onboarding"
 - Shared "Site/…" components: Nav, Button, Feature Tab, Details Bar, Next Project, Contact Banner, Footer, Screen Placeholder (phone and desktop)
 - The site map `rzyDd` lists the 12 planned pages (case studies, project pages, concepts, About, Contact); so far only the homepage has a page frame
@@ -54,7 +55,7 @@ npx shadcn@latest add dialog   # add a shadcn/ui component
 - `cn` (`src/lib/utils.ts`) only knows the text sizes listed there. When you add a `--text-*` size to `@theme`, add its name to that list, or `cn("text-feature", "text-paper")` reads it as a colour and drops it
 - `src/components/ui/tabs.tsx` is cut down to Base UI's parts with no styles of its own; style tabs where they're used (the open tab has `data-active`)
 - Absolutely placed design groups (the hero's device fan, the mockups on each tab screen) are converted to percentages of their stage so they scale
-- The three homepage projects share one layout: a head (number label, heading, "Read the case study" button), four feature tabs, and a stage in the project's colour showing the open tab's screen and caption. Keep sections as their own components in `src/components/`
-- Feature tabs play like a slideshow (spec `r1RONp`): only the open tab fills, left to right over 6 seconds, then the next tab opens and its screen and caption fade in, looping back after the fourth. Clicking a tab opens it straight away and restarts its timer
+- The homepage's work section (`Work.tsx`) holds the projects as data (`Project` in `ProjectTab.tsx`: name, kind, icon, caption, caseStudy, theme, visual): a head with the "My best work" heading and a "View all projects" button, a tab per project, and a stage in the open project's colour showing its screen, its one-line caption and a "View case study" link. Keep sections as their own components in `src/components/`
+- The tabs play like a slideshow (spec `r1RONp`): only the open tab fills, left to right over 6 seconds, then the next project opens and its screen and caption fade in, looping back after the last. Clicking a tab opens it straight away and restarts its timer
 - Style: clean, minimal, premium; generous whitespace, strong type, image-led, one accent per project. Keep copy trimmed to what the design shows
 - Match the design's text and layout, with spacing, type and radii snapped to the sizing rules above; the design is desktop-only, so work out tablet and mobile layouts
