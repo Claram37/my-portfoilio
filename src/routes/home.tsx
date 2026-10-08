@@ -1,4 +1,5 @@
 import type { Route } from './+types/home';
+import Hero from '@/components/Hero';
 
 const title = 'Clara Kamande · Product Designer';
 const description =
@@ -13,23 +14,5 @@ export const meta: Route.MetaFunction = () => [
 ];
 
 export default function Home() {
-  return (
-    <section className="mx-auto flex min-h-screen max-w-content flex-col items-center justify-center gap-6 px-page text-center">
-      <p className="rounded-full bg-pill px-4 py-2 text-sm font-medium">Product Designer · Nairobi, Kenya</p>
-      <h1 className="text-hero">
-        I design products people can actually use,
-        <br />
-        and I can help build them too.
-      </h1>
-      <p className="max-w-2xl text-lead text-muted-foreground">
-        Setup check: Montserrat, Open Sans, colours and type scale are loaded. The real homepage comes next.
-      </p>
-      <div className="flex gap-3">
-        <span className="size-10 rounded-full bg-dproz" />
-        <span className="size-10 rounded-full bg-fitcheck" />
-        <span className="size-10 rounded-full bg-safari" />
-        <span className="size-10 rounded-full bg-contact" />
-      </div>
-    </section>
-  );
+  return <Hero />;
 }

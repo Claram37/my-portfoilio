@@ -5,6 +5,7 @@ import '@fontsource-variable/open-sans';
 
 import type { Route } from './+types/root';
 import Button from '@/components/Button';
+import Nav from '@/components/Nav';
 import './styles/global.css';
 
 export const links: Route.LinksFunction = () => [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }];
@@ -31,9 +32,12 @@ export function Layout({ children }: { children: ReactNode }) {
 // Shared page shell; the current route renders into <Outlet />
 export default function App() {
   return (
-    <main>
-      <Outlet />
-    </main>
+    <>
+      <Nav />
+      <main>
+        <Outlet />
+      </main>
+    </>
   );
 }
 
