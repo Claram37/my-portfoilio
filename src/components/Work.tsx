@@ -127,16 +127,19 @@ const Work = () => {
     <section
       id="work"
       aria-labelledby={headingId}
-      className="px-page pt-25 lg:pt-28 2xl:pt-35"
+      className="px-page pt-30 lg:pt-28 2xl:pt-35"
     >
       <div className="mx-auto max-w-content">
         <div className="flex flex-col items-start gap-8 sm:flex-row sm:items-end sm:justify-between">
-          <h2 id={headingId} className="text-chapter">
-            My best work
-          </h2>
-          <Button to="/work" arrow className="shrink-0">
-            View all projects
-          </Button>
+          <div>
+            <h2 id={headingId} className="text-chapter">
+              My best work
+            </h2>
+            <p className="text-lg mt-2 font-medium">
+              Showcasing exceptional projects that pushed my boundaries and
+              created meaningful impact.
+            </p>
+          </div>
         </div>
         <Tabs
           value={active}
