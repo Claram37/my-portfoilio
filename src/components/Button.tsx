@@ -23,13 +23,13 @@ export default function Button({ to, variant = 'dark', arrow = false, className,
     <Link
       to={to}
       className={cn(
-        'group inline-flex items-center gap-2.5 rounded-full px-[26px] py-4 text-[15px] leading-[19px] font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink max-sm:px-5',
+        'group inline-flex items-center gap-2 rounded-full px-6 py-4 text-base leading-5 font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink max-sm:px-5',
         variants[variant],
         className,
       )}
     >
       {children}
-      {arrow && <ArrowRight size={17} className="transition-transform group-hover:translate-x-0.5" aria-hidden="true" />}
+      {arrow && <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />}
     </Link>
   );
 }

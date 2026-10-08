@@ -11,9 +11,14 @@
 /*
   Design tokens from Idea 06 · Full-bleed Chapters
   (porfoilio-ideas.pen → "Page · Home", designed at 1440px wide).
-  Display sizes scale down fluidly and hit the design value at 1440px.
+  Spacing rules: padding, margins and gaps are multiples of 4px, cards have a 16px radius,
+  and font sizes sit on the scale 12 14 16 18 20 24 28 32 36 40 48 56 64 72 80
+  (steps of 2 up to 20, of 4 up to 40, of 8 above).
 */
 @theme {
+  /* Tailwind's md (768px), lg (1024px) and xl (1280px), with 2xl moved to 1440px, the design width */
+  --breakpoint-2xl: 90rem;
+
   /* Montserrat for headings and display numbers, Open Sans for everything else */
   --font-sans: "Open Sans Variable", "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Montserrat Variable", "Montserrat", ui-sans-serif, system-ui, sans-serif;
@@ -52,33 +57,33 @@
   --color-contact: #e2582f;
   --color-contact-body: #ffe3d8;
 
-  /* Type scale */
-  --text-display: clamp(2.75rem, 5.833vw, 5.25rem);
+  /* Type scale. Heading sizes here are the phone sizes; they step up in the :root block below */
+  --text-display: 2.5rem;
   --text-display--line-height: 1.02;
   --text-display--letter-spacing: -0.048em;
   --text-display--font-weight: 600;
 
-  --text-stat: clamp(3rem, 5vw, 4.5rem);
+  --text-stat: 3rem;
   --text-stat--line-height: 1;
   --text-stat--letter-spacing: -0.042em;
   --text-stat--font-weight: 700;
 
-  --text-hero: clamp(2.375rem, 4.167vw, 3.75rem);
+  --text-hero: 2.25rem;
   --text-hero--line-height: 1.08;
   --text-hero--letter-spacing: -0.043em;
   --text-hero--font-weight: 600;
 
-  --text-chapter: clamp(2.125rem, 3.611vw, 3.25rem);
+  --text-chapter: 2rem;
   --text-chapter--line-height: 1.05;
   --text-chapter--letter-spacing: -0.038em;
   --text-chapter--font-weight: 600;
 
-  --text-about: clamp(2rem, 3.194vw, 2.875rem);
+  --text-about: 2rem;
   --text-about--line-height: 1.08;
   --text-about--letter-spacing: -0.039em;
   --text-about--font-weight: 600;
 
-  --text-section: clamp(1.875rem, 3.056vw, 2.75rem);
+  --text-section: 1.75rem;
   --text-section--line-height: 1.08;
   --text-section--letter-spacing: -0.034em;
   --text-section--font-weight: 600;
@@ -87,25 +92,83 @@
   --text-title--letter-spacing: -0.025em;
   --text-title--font-weight: 600;
 
-  --text-lead: 1.1875rem;
+  --text-lead: 1.25rem;
   --text-lead--line-height: 1.55;
   --text-body-lg: 1.125rem;
   --text-body-lg--line-height: 1.65;
-  --text-body: 1.0625rem;
+  --text-body: 1rem;
   --text-body--line-height: 1.55;
 
-  /* Layout: 96px page margins and a 1248px content width at 1440px */
-  --spacing-page: clamp(1.25rem, 6.667vw, 6rem);
-  --spacing-nav: clamp(1.25rem, 3.889vw, 3.5rem);
+  /* Layout: page margins (phone size here, 96px at 1440) and a 1248px content width */
+  --spacing-page: 1.25rem;
+  --spacing-nav: 1.25rem;
   --container-content: 78rem;
 
-  /* Corner radii */
+  /* Corner radii. Every card, the About portrait included, is 16px */
   --radius-chip: 16px;
-  --radius-card-sm: 20px;
-  --radius-card: 24px;
-  --radius-portrait: 28px;
-  --radius-screen: 35px;
-  --radius-device: 44px;
+  --radius-card: 16px;
+
+  /*
+    Phone frame (@/components/Phone), as a share of the phone's width so it scales with it:
+    44px corners, 35px screen corners and a 9px bezel on the design's 280px phone
+  */
+  --radius-device: 15.714cqw;
+  --radius-screen: 12.5cqw;
+  --spacing-bezel: 3.214cqw;
+  --shadow-phone: 0 30px 60px #00000022;
+  --shadow-phone-lg: 0 30px 60px #00000030;
+}
+
+/*
+  Headings and page margins step up at each breakpoint instead of scaling with the viewport,
+  so every size stays on the scale. 2xl is the design at 1440px. Sizes in px:
+
+                 phone   md   lg   xl  2xl
+  page margin       20   48   64   80   96
+  nav margin        20   32   40   48   56
+  display           40   48   56   72   80
+  stat              48   48   56   64   72
+  hero              36   40   48   48   56
+  chapter           32   36   40   40   48
+  about             32   32   36   40   48
+  section           28   32   32   36   40
+*/
+:root {
+  @variant md {
+    --spacing-page: 3rem;
+    --spacing-nav: 2rem;
+    --text-display: 3rem;
+    --text-hero: 2.5rem;
+    --text-chapter: 2.25rem;
+    --text-section: 2rem;
+  }
+  @variant lg {
+    --spacing-page: 4rem;
+    --spacing-nav: 2.5rem;
+    --text-display: 3.5rem;
+    --text-stat: 3.5rem;
+    --text-hero: 3rem;
+    --text-chapter: 2.5rem;
+    --text-about: 2.25rem;
+  }
+  @variant xl {
+    --spacing-page: 5rem;
+    --spacing-nav: 3rem;
+    --text-display: 4.5rem;
+    --text-stat: 4rem;
+    --text-about: 2.5rem;
+    --text-section: 2.25rem;
+  }
+  @variant 2xl {
+    --spacing-page: 6rem;
+    --spacing-nav: 3.5rem;
+    --text-display: 5rem;
+    --text-stat: 4.5rem;
+    --text-hero: 3.5rem;
+    --text-chapter: 3rem;
+    --text-about: 3rem;
+    --text-section: 2.5rem;
+  }
 }
 
 @layer base {

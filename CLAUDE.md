@@ -33,6 +33,14 @@ npx shadcn@latest add dialog   # add a shadcn/ui component
 - Tokens live in `src/styles/global.css` `@theme`: use `bg-dproz`, `text-muted-foreground`, `text-hero`, `px-page`, `max-w-content`, `rounded-device` etc. Add new tokens there, never hard-code hex values in components
 - shadcn's colour names (`primary`, `secondary`, `muted`, `accent`…) are mapped onto the design tokens in `:root` of `global.css` (`primary` = ink, `muted` = surface, `muted-foreground` = the grey body text). There is no dark mode. If `shadcn init` or `add` rewrites `global.css`, keep that mapping and drop any font it adds (it tries to add Geist)
 - Layout grid: 96px page margins (`px-page`) and 1248px content (`max-w-content`) at 1440; the nav uses 56px (`px-nav`)
+- Style with Tailwind classes only: no px or rem values in components (`py-[26px]`, `text-[17px]`, `size={17}`). Use the scale (`py-6`, `text-lg`, `max-w-160`, `size-4`) or, when nothing fits, add a token to `@theme` and use its class (`shadow-phone`, `p-bezel`). Percentages for absolutely placed groups are the one exception
+- Sizing rules (they override the design's values):
+  - Padding, margins and gaps are multiples of 4px: whole Tailwind steps (`p-4`, `gap-6`), never `.5` steps (`gap-2.5`) or odd arbitrary values (`py-[26px]`)
+  - Font sizes sit on the scale 12 14 16 18 20 24 28 32 36 40 48 56 64 72 80 (steps of 2 up to 20, of 4 up to 40, of 8 above)
+  - Every card has a 16px radius (`rounded-card`)
+  - Round a design value that's off the rules to the nearest allowed one
+  - Re-check shadcn components after `npx shadcn add`, since they ship with `.5` spacing steps
+- Responsive: heading sizes and page margins step up at `md` (768), `lg` (1024), `xl` (1280) and `2xl` (1440, the design width, redefined in `@theme`) instead of scaling with the viewport, so every size stays on the scale. The per-breakpoint values are in the `:root` block and table in `global.css`
 - Pages: add the file in `src/routes/`, register it in `src/routes.ts` (`route('about', 'routes/about.tsx')`), and export `meta` with the title, description and `og:` tags (see `routes/home.tsx`). Unknown URLs fall through to `routes/not-found.tsx`
 - Internal links use `<Link to>` from `react-router`, not `<a href>`
 - Buttons are pills: use `@/components/Button` (`to`, `dark` / `soft` / `light`, optional `arrow`) for page links and CTAs. `@/components/ui/button` is shadcn's button for interactive UI
@@ -40,4 +48,4 @@ npx shadcn@latest add dialog   # add a shadcn/ui component
 - Absolutely placed design groups (device fan, chips) are converted to percentages of their stage so they scale
 - Each project is a full-width colour chapter; keep sections as their own components in `src/components/`
 - Style: clean, minimal, premium; generous whitespace, strong type, image-led, one accent per chapter. Keep copy trimmed to what the design shows
-- Match the design's text, spacing and radii exactly; the design is desktop-only, so work out tablet and mobile layouts (fluid type is already in the tokens)
+- Match the design's text and layout, with spacing, type and radii snapped to the sizing rules above; the design is desktop-only, so work out tablet and mobile layouts
