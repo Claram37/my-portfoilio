@@ -1,0 +1,30 @@
+# build output
+build/
+*.tsbuildinfo
+
+# generated route types
+.react-router/
+
+# dependencies
+node_modules/
+
+# logs
+*.log
+npm-debug.log*
+
+# environment variables (.env.example can still be committed)
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Claude Code personal settings and Playwright MCP screenshots
+.claude/settings.local.json
+.playwright-mcp/
