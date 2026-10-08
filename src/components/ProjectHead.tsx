@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 
-interface ProjectHeadProps {
+export interface ProjectHeadProps {
   heading: string;
   caseStudy: string;
   headingId: string;

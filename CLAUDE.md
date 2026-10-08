@@ -50,6 +50,9 @@ npx shadcn@latest add dialog   # add a shadcn/ui component
 - Internal links use `<Link to>` from `react-router`, not `<a href>`
 - Buttons are pills: use `@/components/Button` (`to`, `dark` / `soft` / `light`, optional `arrow`) for page links and CTAs. `@/components/ui/button` is shadcn's button for interactive UI
 - Phones: use `@/components/Phone` with a screen image. Export only the phone's inner "Screen" node from pen.dev at 2× into `src/assets/<section>/`; the bezel, corners and shadow are CSS and scale with the phone's width
+- Browser windows: use `@/components/Browser` with a desktop screenshot and its `url`; the top bar, corners and border are CSS (the `window-*` tokens) and scale with the window's width. Clara's original screenshots are in `C:\Users\Joe\Desktop\images\portfolio-assets\`, and when one has the same proportions as the design's screen node, copy it rather than exporting
+- `cn` (`src/lib/utils.ts`) only knows the text sizes listed there. When you add a `--text-*` size to `@theme`, add its name to that list, or `cn("text-feature", "text-paper")` reads it as a colour and drops it
+- `src/components/ui/tabs.tsx` is cut down to Base UI's parts with no styles of its own; style tabs where they're used (the open tab has `data-active`)
 - Absolutely placed design groups (the hero's device fan, the mockups on each tab screen) are converted to percentages of their stage so they scale
 - The three homepage projects share one layout: a head (number label, heading, "Read the case study" button), four feature tabs, and a stage in the project's colour showing the open tab's screen and caption. Keep sections as their own components in `src/components/`
 - Feature tabs play like a slideshow (spec `r1RONp`): only the open tab fills, left to right over 6 seconds, then the next tab opens and its screen and caption fade in, looping back after the fourth. Clicking a tab opens it straight away and restarts its timer

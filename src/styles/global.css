@@ -52,6 +52,7 @@
   --color-dproz-label: #c9d6ff;
   --color-dproz-body: #dce5ff;
   --color-dproz-glow: #4c78ffaa;
+  --shadow-dproz: 0 30px 70px #0a1a5c59;
 
   /* Project 02 · Dproz Fitcheck. Its tab screens are light, with ink captions and muted-foreground links */
   --color-fitcheck: #f2efea;
@@ -96,9 +97,15 @@
   --text-hero--font-weight: 600;
 
   --text-chapter: 2rem;
-  --text-chapter--line-height: 1.05;
-  --text-chapter--letter-spacing: -0.038em;
+  --text-chapter--line-height: 1.1;
+  --text-chapter--letter-spacing: -0.031em;
   --text-chapter--font-weight: 600;
+
+  /* The caption on a project's stage ("A complete profile in under 60 seconds.") */
+  --text-feature: 1.5rem;
+  --text-feature--line-height: 1.15;
+  --text-feature--letter-spacing: -0.024em;
+  --text-feature--font-weight: 500;
 
   --text-about: 2rem;
   --text-about--line-height: 1.08;
@@ -139,6 +146,35 @@
   --spacing-bezel: 3.214cqw;
   --shadow-phone: 0 30px 60px #00000022;
   --shadow-phone-lg: 0 30px 60px #00000030;
+
+  /*
+    Browser window (@/components/Browser), as a share of the window's width so it scales with it:
+    14px corners, a 44px top bar with 18px side padding, 12px dots 8px apart and a 440×28 address bar
+    with 8px corners on the design's 700px window (its size on the tab screens at 1440)
+  */
+  --radius-window: 2cqw;
+  --radius-window-address: 1.143cqw;
+  --spacing-window-bar: 6.286cqw;
+  --spacing-window-pad: 2.571cqw;
+  --spacing-window-dot: 1.714cqw;
+  --spacing-window-gap: 1.143cqw;
+  --spacing-window-address: 62.857cqw;
+  --color-window-bar: #f4f4f5;
+  --color-window-line: #e4e4e7;
+  --color-window-close: #ff5f57;
+  --color-window-minimise: #febc2e;
+  --color-window-zoom: #28c840;
+
+  /* A project's open feature tab: its tint fills left to right over the 6 seconds it stays open (spec r1RONp) */
+  --animate-tab-fill: tab-fill 6s linear forwards;
+  @keyframes tab-fill {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
 }
 
 /*
@@ -154,6 +190,7 @@
   chapter           32   36   40   40   48
   about             32   32   36   40   48
   section           28   32   32   36   40
+  feature           24   28   28   28   32
 */
 :root {
   @variant md {
@@ -163,6 +200,7 @@
     --text-hero: 2.5rem;
     --text-chapter: 2.25rem;
     --text-section: 2rem;
+    --text-feature: 1.75rem;
   }
   @variant lg {
     --spacing-page: 4rem;
@@ -190,6 +228,7 @@
     --text-chapter: 3rem;
     --text-about: 3rem;
     --text-section: 2.5rem;
+    --text-feature: 2rem;
   }
 }
 
