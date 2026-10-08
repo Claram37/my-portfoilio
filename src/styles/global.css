@@ -33,8 +33,8 @@
   --color-bezel: #0b0b0c;
 
   /*
-    Feature tabs ("Site/Feature Tab"): the tab background and inactive label, then the icon tile
-    and tint fill of tabs 1–4, which are the same in every project
+    Project tabs ("Site/Feature Tab"): the tab background and inactive label, then the icon tiles
+    and tint fills. Dproz is blue, Fitcheck purple, ShopXray green; orange is spare
   */
   --color-tab: #f0efec;
   --color-tab-inactive: #5c5d62;
@@ -57,6 +57,8 @@
   /* Project 02 · Dproz Fitcheck. Its tab screens are light, with ink captions and muted-foreground links */
   --color-fitcheck: #f2efea;
   --color-fitcheck-glow: #ffffffb3;
+  --shadow-fitcheck: 0 36px 80px #2b211633;
+  --shadow-fitcheck-card: 0 14px 36px #2b21161f;
   --color-success: #16a34a;
   --color-success-bg: #dcfce7;
   --color-success-text: #15803d;
@@ -68,6 +70,7 @@
   --color-shopxray: #306844;
   --color-shopxray-label: #cfe6d6;
   --color-shopxray-glow: #5a9a70aa;
+  --shadow-shopxray: 0 30px 70px #0b2a1866;
 
   /* Safari Spirits: chapter 03 in v1, replaced by ShopXray on the homepage. Not used yet */
   --color-safari: #f5ede0;

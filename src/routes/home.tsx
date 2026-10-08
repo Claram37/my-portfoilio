@@ -1,6 +1,6 @@
-import DprozProject from "@/components/DprozProject";
 import type { Route } from "./+types/home";
 import Hero from "@/components/Hero";
+import Work from "@/components/Work";
 
 const title = "Clara Kamande · Product Designer";
 const description =
@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <DprozProject />
+      <Work />
     </>
   );
 };
