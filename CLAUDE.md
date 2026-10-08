@@ -1,6 +1,6 @@
 # Clara Kamande — Portfolio
 
-Portfolio site for Clara Kamande, Product Designer in Nairobi. Built from the pen.dev design **Idea 06 · Full-bleed Chapters**.
+Portfolio site for Clara Kamande, Product Designer in Nairobi. Built from the pen.dev design direction **Idea 06 · Full-bleed Chapters**, in its **Home v2 · Feature tabs** version.
 
 ## Stack
 
@@ -24,9 +24,13 @@ npx shadcn@latest add dialog   # add a shadcn/ui component
 ## Design source
 
 - File: `C:\Users\Joe\Desktop\images\porfoilio-ideas.pen` (read it through the pencil MCP; it must be open in pen.dev)
-- Homepage frame: `xEZwv` "Page · Home" (1440 wide). Sections in order: Nav `nd1At`, Hero `ERydX`, Chapter 01 · Dproz `tjTd4`, Chapter 02 · Fitcheck `F35VCK`, Chapter 03 · Safari Spirits `VolDJ`, More work `EGStP`, About teaser `lVZL5`, Contact banner `J1osG`
-- The other 11 pages sit in the same row (case studies, About, Contact). Shared "Site/…" components: Nav, Button, Details Bar, Next Project, Contact Banner, Footer
-- Phone/cover/desktop mockup screens in the design are illustrative placeholders, not Clara's real screens
+- Homepage frame: `RneR8` "Page · Home v2 · Feature tabs" (1440 wide). Sections in order: Nav `ldxnR`, Hero `DywD6`, Project 01 · Dproz `BlBfv`, Project 02 · Dproz Fitcheck `r8BIvg`, Project 03 · ShopXray `P8EYO`, More work `hOBYs`, About teaser `Zs391`, Contact banner `i4QwKx`
+- Don't build from `xEZwv` "Page · Home" (the earlier v1 layout with full-bleed colour chapters) or `UpWYc` (the archived Safari Spirits project section, replaced by ShopXray)
+- "Spec · Feature tabs" `r1RONp` describes how the project tabs move and lists every tab's caption
+- Each tab's screen is a 1248×640 component named `<Project>/Tab screen · <n> <tab>`, e.g. `rIDiR` "Dproz/Tab screen · 1 Guided onboarding"
+- Shared "Site/…" components: Nav, Button, Feature Tab, Details Bar, Next Project, Contact Banner, Footer, Screen Placeholder (phone and desktop)
+- The site map `rzyDd` lists the 12 planned pages (case studies, project pages, concepts, About, Contact); so far only the homepage has a page frame
+- The "… · Real mockups" rows (Dproz, Fitcheck, ShopXray and others, from x 10000) are components built from Clara's real screens, and the tab screens use them. Grey screen placeholders and the older `Phone · …`, `Cover · …` and `Desktop · …` components are illustrative, not her real screens
 
 ## Conventions
 
@@ -45,7 +49,8 @@ npx shadcn@latest add dialog   # add a shadcn/ui component
 - Internal links use `<Link to>` from `react-router`, not `<a href>`
 - Buttons are pills: use `@/components/Button` (`to`, `dark` / `soft` / `light`, optional `arrow`) for page links and CTAs. `@/components/ui/button` is shadcn's button for interactive UI
 - Phones: use `@/components/Phone` with a screen image. Export only the phone's inner "Screen" node from pen.dev at 2× into `src/assets/<section>/`; the bezel, corners and shadow are CSS and scale with the phone's width
-- Absolutely placed design groups (device fan, chips) are converted to percentages of their stage so they scale
-- Each project is a full-width colour chapter; keep sections as their own components in `src/components/`
-- Style: clean, minimal, premium; generous whitespace, strong type, image-led, one accent per chapter. Keep copy trimmed to what the design shows
+- Absolutely placed design groups (the hero's device fan, the mockups on each tab screen) are converted to percentages of their stage so they scale
+- The three homepage projects share one layout: a head (number label, heading, "Read the case study" button), four feature tabs, and a stage in the project's colour showing the open tab's screen and caption. Keep sections as their own components in `src/components/`
+- Feature tabs play like a slideshow (spec `r1RONp`): only the open tab fills, left to right over 6 seconds, then the next tab opens and its screen and caption fade in, looping back after the fourth. Clicking a tab opens it straight away and restarts its timer
+- Style: clean, minimal, premium; generous whitespace, strong type, image-led, one accent per project. Keep copy trimmed to what the design shows
 - Match the design's text and layout, with spacing, type and radii snapped to the sizing rules above; the design is desktop-only, so work out tablet and mobile layouts

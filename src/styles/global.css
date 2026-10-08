@@ -10,7 +10,7 @@
 
 /*
   Design tokens from Idea 06 · Full-bleed Chapters
-  (porfoilio-ideas.pen → "Page · Home", designed at 1440px wide).
+  (porfoilio-ideas.pen → "Page · Home v2 · Feature tabs", designed at 1440px wide).
   Spacing rules: padding, margins and gaps are multiples of 4px, cards have a 16px radius,
   and font sizes sit on the scale 12 14 16 18 20 24 28 32 36 40 48 56 64 72 80
   (steps of 2 up to 20, of 4 up to 40, of 8 above).
@@ -32,13 +32,30 @@
   --color-pill: #f3f3f4;
   --color-bezel: #0b0b0c;
 
-  /* Chapter 01 · Dproz */
+  /*
+    Feature tabs ("Site/Feature Tab"): the tab background and inactive label, then the icon tile
+    and tint fill of tabs 1–4, which are the same in every project
+  */
+  --color-tab: #f0efec;
+  --color-tab-inactive: #5c5d62;
+  --color-tab-blue: #6a86b8;
+  --color-tab-blue-tint: #d5ddec;
+  --color-tab-purple: #9474c2;
+  --color-tab-purple-tint: #e0d7ee;
+  --color-tab-green: #7f9873;
+  --color-tab-green-tint: #d7e0d0;
+  --color-tab-orange: #d98a5e;
+  --color-tab-orange-tint: #f1d8c8;
+
+  /* Project 01 · Dproz. The glow is the radial light on its tab screens, at the design's 67% opacity */
   --color-dproz: #1f4fe0;
   --color-dproz-label: #c9d6ff;
   --color-dproz-body: #dce5ff;
+  --color-dproz-glow: #4c78ffaa;
 
-  /* Chapter 02 · Fitcheck */
+  /* Project 02 · Dproz Fitcheck. Its tab screens are light, with ink captions and muted-foreground links */
   --color-fitcheck: #f2efea;
+  --color-fitcheck-glow: #ffffffb3;
   --color-success: #16a34a;
   --color-success-bg: #dcfce7;
   --color-success-text: #15803d;
@@ -46,7 +63,12 @@
   --color-warning-bg: #fef3c7;
   --color-warning-text: #b45309;
 
-  /* Chapter 03 · Safari Spirits */
+  /* Project 03 · ShopXray */
+  --color-shopxray: #306844;
+  --color-shopxray-label: #cfe6d6;
+  --color-shopxray-glow: #5a9a70aa;
+
+  /* Safari Spirits: chapter 03 in v1, replaced by ShopXray on the homepage. Not used yet */
   --color-safari: #f5ede0;
   --color-safari-accent: #8a6a45;
   --color-safari-ink: #2b2116;
