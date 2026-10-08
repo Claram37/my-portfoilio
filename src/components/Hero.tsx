@@ -28,7 +28,7 @@ const Hero = () => {
       </p>
 
       <div className="flex flex-wrap justify-center gap-3 pt-2">
-        <Button to="work" arrow>
+        <Button to="#work" arrow>
           See my work
         </Button>
         <Button to="/contact" variant="soft">
