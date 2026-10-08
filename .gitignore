@@ -25,6 +25,7 @@ desktop.ini
 .vscode/*
 !.vscode/extensions.json
 
-# Claude Code personal settings and Playwright MCP screenshots
+# Claude Code project notes and personal settings, and Playwright MCP screenshots
+CLAUDE.md
 .claude/settings.local.json
 .playwright-mcp/
