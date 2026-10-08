@@ -13,6 +13,8 @@ export const meta: Route.MetaFunction = () => [
   { property: 'og:description', content: description },
 ];
 
-export default function Home() {
+const Home = () => {
   return <Hero />;
-}
+};
+
+export default Home;

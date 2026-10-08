@@ -7,7 +7,7 @@ const links = [
   { to: "/about", label: "About" },
 ];
 
-export default function Nav() {
+const Nav = () => {
   return (
     <header>
       <nav
@@ -43,4 +43,6 @@ export default function Nav() {
       </nav>
     </header>
   );
-}
+};
+
+export default Nav;

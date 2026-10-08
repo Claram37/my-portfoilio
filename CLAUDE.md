@@ -6,7 +6,7 @@ Portfolio site for Clara Kamande, Product Designer in Nairobi. Built from the pe
 
 - React 19 + React Router 8 in framework mode, on Vite 8. Tailwind CSS 4 via `@tailwindcss/vite`, TypeScript strict. The owner codes in React themselves, so keep to plain React patterns
 - Static site: `react-router.config.ts` sets `ssr: false` and pre-renders every route without URL params to its own HTML file in `build/client/` (real HTML per page, so link previews and first paint work). There is no server, so no `loader`s that need one; use static data or `clientLoader`
-- The app lives in `src/` (`appDirectory`), not React Router's default `app/`: `src/root.tsx` (HTML document, shared shell, error boundary), `src/routes.ts` (route list), `src/routes/*.tsx` (pages)
+- The app lives in `src/` (`appDirectory`), not React Router's default `app/`: `src/root.tsx` (the root route: imports the fonts and global CSS, and re-exports the HTML document `Layout`, shared shell `App` and `ErrorBoundary` from `src/components/`), `src/routes.ts` (route list), `src/routes/*.tsx` (pages)
 - Component library: shadcn/ui, style `base-nova` (Base UI primitives), configured in `components.json`. Components are copied into `src/components/ui/` and are ours to edit
 - Fonts: Montserrat for headings (`h1`–`h4`, `font-display`, shadcn's `font-heading`) and Open Sans for body (`font-sans`, the default), via `@fontsource-variable/*` imported in `src/root.tsx`. The design file still uses Sora; the code overrides it on purpose
 - Icons: `lucide-react` (`import { ArrowRight } from 'lucide-react'`); the design uses Lucide icons
@@ -45,6 +45,7 @@ npx shadcn@latest add dialog   # add a shadcn/ui component
   - Round a design value that's off the rules to the nearest allowed one
   - Re-check shadcn components after `npx shadcn add`, since they ship with `.5` spacing steps
 - Responsive: heading sizes and page margins step up at `md` (768), `lg` (1024), `xl` (1280) and `2xl` (1440, the design width, redefined in `@theme`) instead of scaling with the viewport, so every size stays on the scale. The per-breakpoint values are in the `:root` block and table in `global.css`
+- Components are arrow functions in the rafce shape: `const Hero = () => { return (…); };` with `export default Hero;` at the bottom. Route modules too. Components React Router needs as named exports (`Layout`, `ErrorBoundary`) live in `src/components/` like any other and are re-exported from `root.tsx`; `meta` and `links` are `export const` arrows. No `import React` line, since the JSX transform doesn't need it. `src/components/ui/` keeps shadcn's own style
 - Pages: add the file in `src/routes/`, register it in `src/routes.ts` (`route('about', 'routes/about.tsx')`), and export `meta` with the title, description and `og:` tags (see `routes/home.tsx`). Unknown URLs fall through to `routes/not-found.tsx`
 - Internal links use `<Link to>` from `react-router`, not `<a href>`
 - Buttons are pills: use `@/components/Button` (`to`, `dark` / `soft` / `light`, optional `arrow`) for page links and CTAs. `@/components/ui/button` is shadcn's button for interactive UI

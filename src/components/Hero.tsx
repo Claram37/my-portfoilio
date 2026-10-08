@@ -4,7 +4,7 @@ import dprozScreen from "@/assets/hero/dproz-home-feed.png";
 import fitcheckScreen from "@/assets/hero/fitcheck-overview.png";
 import safariScreen from "@/assets/hero/safari-screen.png";
 
-export default function Hero() {
+const Hero = () => {
   return (
     <section className="flex flex-col items-center gap-6 overflow-hidden px-page pt-20 text-center">
       <p className="inline-flex items-center gap-2 rounded-full bg-pill px-4 py-2 text-sm leading-4.5 font-medium">
@@ -28,7 +28,7 @@ export default function Hero() {
       </p>
 
       <div className="flex flex-wrap justify-center gap-3 pt-2">
-        <Button to="#work" arrow>
+        <Button to="work" arrow>
           See my work
         </Button>
         <Button to="/contact" variant="soft">
@@ -63,4 +63,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
