@@ -1,3 +1,4 @@
+import MoreWork from "@/components/MoreWork";
 import type { Route } from "./+types/home";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
@@ -12,6 +13,7 @@ const Home = () => {
     <>
       <Hero />
       <Work />
+      <MoreWork />
     </>
   );
 };

@@ -24,7 +24,7 @@ const moreWork: MoreProject[] = [
     ),
   },
   {
-    name: "Dproz Hiring Applications Tracker",
+    name: "Hiring Applications Tracker",
     summary:
       "Kanban and table views that help recruiters follow every candidate through each stage.",
     to: "/work/hiring-tracker",
