@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import Phone from "@/components/Phone";
+import site from "@/data/site";
 import dprozScreen from "@/assets/hero/dproz-home-feed.png";
 import fitcheckScreen from "@/assets/hero/fitcheck-overview.png";
 import safariScreen from "@/assets/hero/safari-screen.png";
@@ -12,7 +13,7 @@ const Hero = () => {
           className="size-2 shrink-0 rounded-full bg-success"
           aria-hidden="true"
         ></span>
-        Product Designer · Nairobi, Kenya
+        {site.role} · {site.location}
       </p>
 
       {/* The design's line break fits from 1280px up; narrower screens wrap the headline evenly */}
@@ -23,8 +24,7 @@ const Hero = () => {
       </h1>
 
       <p className="max-w-160 text-lead text-pretty text-muted-foreground">
-        Hi, I'm Clara. Two years shaping mobile-first products for job seekers,
-        employers and small business owners across East Africa.
+        {site.intro}
       </p>
 
       <div className="flex flex-wrap justify-center gap-3 pt-2">

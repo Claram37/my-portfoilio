@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import Button from "@/components/Button";
+import site from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -18,7 +19,7 @@ const Nav = () => {
           to="/"
           className="font-display text-lg font-semibold whitespace-nowrap"
         >
-          Clara Kamande
+          {site.name}
         </Link>
         <div className="flex items-center gap-8 max-sm:gap-5">
           {links.map(({ to, label, className }) => (
