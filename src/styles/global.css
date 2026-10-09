@@ -20,8 +20,10 @@
   --breakpoint-2xl: 90rem;
 
   /* Montserrat for headings and display numbers, Open Sans for everything else */
-  --font-sans: "Open Sans Variable", "Open Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Montserrat Variable", "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    "Open Sans Variable", "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    "Montserrat Variable", "Montserrat", ui-sans-serif, system-ui, sans-serif;
 
   /* Neutrals. Grey text is shadcn's muted-foreground (text-muted-foreground), set in :root below */
   --color-ink: #101114;
@@ -78,6 +80,8 @@
   --color-safari-ink: #2b2116;
   --color-safari-muted: #6b5a45;
   --color-safari-line: #e2d5c2;
+
+  --color-resume-feedback: #e6edf8;
 
   /* Contact */
   --color-contact: #e2582f;

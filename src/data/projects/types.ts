@@ -18,3 +18,11 @@ export interface Project {
   theme: ProjectTheme;
   visual: ReactNode;
 }
+
+export interface MoreProject {
+  name: string;
+  summary: string;
+  to: string;
+  tag?: string;
+  cover: ReactNode;
+}
