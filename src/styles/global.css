@@ -86,6 +86,7 @@
   /* Contact */
   --color-contact: #e2582f;
   --color-contact-body: #ffe3d8;
+  --color-placeholder: #8e8f94;
 
   /* Type scale. Heading sizes here are the phone sizes; they step up in the :root block below */
   --text-display: 2.5rem;
@@ -140,9 +141,10 @@
   --spacing-nav: 1.25rem;
   --container-content: 78rem;
 
-  /* Corner radii. Every card, the About portrait included, is 16px */
+  /* Corner radii. Every card, the About portrait included, is 16px; form inputs are 12px */
   --radius-chip: 16px;
   --radius-card: 16px;
+  --radius-input: 12px;
 
   /*
     Phone frame (@/components/Phone), as a share of the phone's width so it scales with it:

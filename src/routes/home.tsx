@@ -1,4 +1,5 @@
 import MoreWork from "@/components/MoreWork";
+import Contact from "@/components/Contact";
 import type { Route } from "./+types/home";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
@@ -14,6 +15,7 @@ const Home = () => {
       <Hero />
       <Work />
       <MoreWork />
+      <Contact />
     </>
   );
 };

@@ -11,7 +11,7 @@ const SectionHead = ({ id, title, children }: SectionHeadProps) => {
       <h2 id={id} className="text-chapter">
         {title}
       </h2>
-      <p className="text-lg mt-2 font-medium">{children}</p>
+      <p className="text-lg mt-2 font-normal">{children}</p>
     </div>
   );
 };

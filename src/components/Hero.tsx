@@ -16,14 +16,9 @@ const Hero = () => {
         {site.role} · {site.location}
       </p>
 
-      {/* The design's line break fits from 1280px up; narrower screens wrap the headline evenly */}
-      <h1 className="text-hero text-balance">
-        I design products people can actually use,{" "}
-        <br className="max-xl:hidden" />
-        and I can help build them too.
-      </h1>
+      <h1 className="text-hero text-balance">Hi, I'm Clara.</h1>
 
-      <p className="max-w-160 text-lead text-pretty text-muted-foreground">
+      <p className="max-w-200 text-lead text-pretty text-muted-foreground">
         {site.intro}
       </p>
 
@@ -36,10 +31,6 @@ const Hero = () => {
         </Button>
       </div>
 
-      {/*
-        Device fan: 1100×445 visible area of the design's 1100×520 stage. The hero clips the phones' lower edge.
-        Below 640px the fan keeps its 640px width and the side phones run off-screen.
-      */}
       <div className="relative aspect-1100/445 w-full max-w-275 min-w-160 shrink-0">
         <Phone
           src={fitcheckScreen}

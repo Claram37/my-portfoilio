@@ -15,7 +15,8 @@ const sizes = {
 };
 
 interface ButtonProps {
-  to: string;
+  to?: string;
+  type?: "button" | "submit";
   variant?: keyof typeof variants;
   size?: keyof typeof sizes;
   arrow?: boolean;
@@ -25,22 +26,22 @@ interface ButtonProps {
 
 const Button = ({
   to,
+  type = "button",
   variant = "dark",
   size = "md",
   arrow = false,
   className,
   children,
 }: ButtonProps) => {
-  return (
-    <Link
-      to={to}
-      className={cn(
-        "group inline-flex items-center gap-2 rounded-full font-semibold transition focus-ring",
-        variants[variant],
-        sizes[size],
-        className,
-      )}
-    >
+  const classes = cn(
+    "group inline-flex items-center gap-2 rounded-full font-semibold transition focus-ring",
+    variants[variant],
+    sizes[size],
+    className,
+  );
+
+  const content = (
+    <>
       {children}
       {arrow && (
         <ArrowRight
@@ -48,7 +49,17 @@ const Button = ({
           aria-hidden="true"
         />
       )}
+    </>
+  );
+
+  return to ? (
+    <Link to={to} className={classes}>
+      {content}
     </Link>
+  ) : (
+    <button type={type} className={classes}>
+      {content}
+    </button>
   );
 };
 
