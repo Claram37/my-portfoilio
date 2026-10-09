@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
 import projects from "@/data/projects";
 import ProjectTab from "./ProjectTab";
+import SectionHead from "./SectionHead";
 
 const Work = () => {
   const headingId = useId();
@@ -17,17 +18,10 @@ const Work = () => {
       className="px-page pt-30 lg:pt-28 2xl:pt-35"
     >
       <div className="mx-auto max-w-content">
-        <div className="flex flex-col items-start gap-8 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 id={headingId} className="text-chapter">
-              My best work
-            </h2>
-            <p className="text-lg mt-2 font-medium">
-              Showcasing exceptional projects that pushed my boundaries and
-              created meaningful impact.
-            </p>
-          </div>
-        </div>
+        <SectionHead id={headingId} title="My best work">
+          Showcasing exceptional projects that pushed my boundaries and created
+          meaningful impact.
+        </SectionHead>
         <Tabs
           value={active}
           onValueChange={(value) => setActive(value)}
