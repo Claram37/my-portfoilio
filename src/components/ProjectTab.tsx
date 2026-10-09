@@ -1,26 +1,6 @@
-import { type LucideIcon } from "lucide-react";
-import { type ReactNode } from "react";
 import { TabsTrigger } from "@/components/ui/tabs";
+import type { Project } from "@/data/projects/types";
 import { cn } from "@/lib/utils";
-
-// A project's colours: its tab's icon tile and tint fill, its stage, and the caption and link on the stage
-export interface ProjectTheme {
-  tile: string;
-  tint: string;
-  stage: string;
-  caption: string;
-  link: string;
-}
-
-export interface Project {
-  name: string;
-  kind: string;
-  icon: LucideIcon;
-  caption: string;
-  caseStudy: string;
-  theme: ProjectTheme;
-  visual: ReactNode;
-}
 
 interface ProjectTabProps {
   project: Project;
