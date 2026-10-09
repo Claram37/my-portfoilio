@@ -180,6 +180,11 @@
   }
 }
 
+/* The keyboard focus outline on links, buttons and tabs */
+@utility focus-ring {
+  @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink;
+}
+
 /*
   Headings and page margins step up at each breakpoint instead of scaling with the viewport,
   so every size stays on the scale. 2xl is the design at 1440px. Sizes in px:

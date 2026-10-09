@@ -9,18 +9,24 @@ const variants = {
   light: "bg-paper text-ink hover:bg-paper/90",
 };
 
+const sizes = {
+  md: "px-6 py-4 text-base leading-5 max-sm:px-5", // button
+  sm: "px-4 py-2 text-sm leading-5", // contact pill
+};
+
 interface ButtonProps {
   to: string;
   variant?: keyof typeof variants;
+  size?: keyof typeof sizes;
   arrow?: boolean;
   className?: string;
   children: ReactNode;
 }
 
-// The design's pill button ("Site/Button"). It's a link; for interactive UI use @/components/ui/button
 const Button = ({
   to,
   variant = "dark",
+  size = "md",
   arrow = false,
   className,
   children,
@@ -29,8 +35,9 @@ const Button = ({
     <Link
       to={to}
       className={cn(
-        "group inline-flex items-center gap-2 rounded-full px-6 py-4 text-base leading-5 font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink max-sm:px-5",
+        "group inline-flex items-center gap-2 rounded-full font-semibold transition focus-ring",
         variants[variant],
+        sizes[size],
         className,
       )}
     >

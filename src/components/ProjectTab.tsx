@@ -28,16 +28,13 @@ interface ProjectTabProps {
   onFilled: () => void;
 }
 
-// One of the tabs above the work stage ("Site/Feature Tab"), named after its project. While it's open, its tint
-// fills over 6 seconds and then calls onFilled. Hovering the tabs or the stage pauses the fill; with reduced
-// motion the tint just shows in full and never finishes, so the tabs don't move on by themselves
 const ProjectTab = ({ project, index, onFilled }: ProjectTabProps) => {
   const { tile, tint } = project.theme;
 
   return (
     <TabsTrigger
       value={index}
-      className="group relative flex min-h-15 items-center gap-3 overflow-hidden rounded-lg bg-tab px-4 py-2 text-left text-base font-medium text-tab-inactive transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink data-active:text-ink"
+      className="group relative flex min-h-15 items-center gap-3 overflow-hidden rounded-lg bg-tab px-4 py-2 text-left text-base font-medium text-tab-inactive transition-colors focus-ring hover:text-ink data-active:text-ink"
     >
       <span
         className={cn(
@@ -47,7 +44,7 @@ const ProjectTab = ({ project, index, onFilled }: ProjectTabProps) => {
         onAnimationEnd={onFilled}
         aria-hidden="true"
       ></span>
-      {/* relative so the tile and label sit above the absolutely placed tint */}
+
       <span
         className={cn(
           "relative flex size-6 shrink-0 items-center justify-center rounded-sm text-paper",

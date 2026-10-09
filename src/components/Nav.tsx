@@ -1,7 +1,7 @@
 import { Link } from "react-router";
+import Button from "@/components/Button";
 import { cn } from "@/lib/utils";
 
-// "Work" is hidden on phones, where it doesn't fit; the homepage is the work and the hero links to it
 const links = [
   { to: "/work", label: "Work", className: "max-sm:hidden" },
   { to: "/about", label: "About" },
@@ -33,12 +33,9 @@ const Nav = () => {
               {label}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            className="rounded-full bg-ink px-4 py-2 text-sm leading-5 font-semibold text-paper transition hover:bg-ink/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
-          >
+          <Button to="/contact" size="sm">
             Contact
-          </Link>
+          </Button>
         </div>
       </nav>
     </header>
